@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragment/pageheader :: head"></head>
+
+<body id="page-top">
+
+<div th:replace="fragment/navmenu :: navmenu"/>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Edit team</h1>
+
+
+        <div class="container-fluid">
+
+  <form action="#" method="post" th:action="@{/updateTeam}" th:object="${team}">
+    <input type="hidden" th:field="${team.id}" />
+
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" class="form-control" id="name" th:field="${team.team}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="ranking" class="form-label">Ranking:</label>
+      <input type="number" class="form-control" id="ranking" th:field="${team.ranking}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="liga" class="form-label">League:</label>
+      <select class="form-control" id="liga" th:field="${team.liga}" required>
+        <option th:each="league : ${leagueList}" th:value="${league}" th:text="${league}" th:selected="${team.liga == league}"></option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto mt-3" style="padding-top:20px;">
+    <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+<!-- End of Main Content -->
+</div>
+          <!-- Footer -->
+          <div th:replace="fragment/copyright :: copyright"/>
+          <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+      </div>
+      <!-- End of Page Wrapper -->
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+
+<div th:replace="fragment/logoutmodal :: logout"/>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+<div th:replace="fragment/pagefooter :: pagefooter"/>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

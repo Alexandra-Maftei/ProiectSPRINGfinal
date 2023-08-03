@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragment/pageheader :: head"></head>
+
+<body id="page-top">
+
+<div th:replace="fragment/navmenu :: navmenu"/>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="mt-4"th:text="${teamName}"></h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+    <tr>
+      <th>Number</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Position</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="player : ${teamPlayers}">
+      <td th:text="${player.number}"></td>
+      <td th:text="${player.firstName}"></td>
+      <td th:text="${player.lastName}"></td>
+      <td th:text="${player.position}"></td>
+    </tr>
+    </tbody>
+  </table>
+          <!-- Footer -->
+          <div th:replace="fragment/copyright :: copyright"/>
+          <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+      </div>
+      <!-- End of Page Wrapper -->
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+
+            <div th:replace="fragment/logoutmodal :: logout"/>
+    </div>
+  </div>
+</div>
+</body>
+<div th:replace="fragment/pagefooter :: pagefooter"/>
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+</html>

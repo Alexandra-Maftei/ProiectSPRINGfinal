@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="fragment/pageheader :: head"></head>
+
+<body id="page-top">
+
+<div th:replace="fragment/navmenu :: navmenu"/>
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Edit player</h1>
+
+
+  <form action="#" method="post" th:action="@{/updatePlayer}" th:object="${player}">
+    <input type="hidden" th:field="${player.id}" />
+
+    <div class="mb-3">
+      <label for="number" class="form-label">Number:</label>
+      <input type="number" class="form-control" id="number" th:field="${player.number}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="firstname" class="form-label">Firstname:</label>
+      <input type="text" class="form-control" id="firstname" th:field="${player.firstName}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Lastname:</label>
+      <input type="text" class="form-control" id="lastname" th:field="${player.lastName}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="team" class="form-label">Team:</label>
+      <select class="form-control" id="team" th:field="${player.teamId}" required>
+        <option th:each="team : ${teamList}" th:value="${team.id}" th:text="${team.team}" th:selected="${team.id == player.teamId}"></option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="position" class="form-label">Position:</label>
+      <select class="form-control" id="position" th:field="${player.position}" required>
+        <option th:each="position : ${positions}" th:value="${position}" th:text="${position}"></option>
+      </select>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto mt-3" style="padding-top:20px;">
+    <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+
+      </div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+        <!-- Footer -->
+        <div th:replace="fragment/copyright :: copyright"/>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+<div th:replace="fragment/logoutmodal :: logout"/>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<div th:replace="fragment/pagefooter :: pagefooter"/>
+</html>

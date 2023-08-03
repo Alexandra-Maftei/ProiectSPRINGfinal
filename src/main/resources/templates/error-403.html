@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragment/pageheader :: head"></head>
+<body id="page-top">
+
+<div th:replace="fragment/navmenu :: navmenu"/>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- 404 Error Text -->
+                    <div class="text-center">
+                        <div class="error mx-auto" data-text="403">403</div>
+                        <p class="lead text-gray-800 mb-5">Authentication error</p>
+                        <p class="text-gray-500 mb-0"> Forbidden: Access is denied</p>
+                        <a th:href="@{/index}">&larr; Back to Dashboard</a>
+                    </div>
+
+                </div>
+        <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <div th:replace="fragment/copyright :: copyright"/>
+            <!-- End of Footer -->
+         </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<div th:replace="fragment/logoutmodal :: logout"/>
+
+</div>
+</div>
+</body>
+<div th:replace="fragment/pagefooter :: pagefooter"/>
+</html>
